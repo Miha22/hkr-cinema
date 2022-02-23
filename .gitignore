@@ -1,0 +1,6 @@
+node_modules/
+keys/*
+!keys/config.js
+
+# Usually it is a good practise to have unique gitignore for each developer
+#.gitignore

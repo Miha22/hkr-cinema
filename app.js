@@ -10,7 +10,7 @@ const fs = require('fs');
 //const { MongoClient, ServerApiVersion } = require('mongodb').MongoClient;
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const mongoose = require('mongoose');
-const MongoStore = require('connect-mongodb-session')(session);
+//const MongoStore = require('connect-mongodb-session')(session);
 const cors = require('cors');
 const permissionsPolicy = require("permissions-policy");
 
@@ -21,10 +21,10 @@ const client = new MongoClient(config.MONGODB_URL, {
     sslCert: credentials,
     serverApi: ServerApiVersion.v1
 });
-const store = MongoStore({
-    collection: 'users',
-    uri: config.MONGODB_URL
-});
+// const store = MongoStore({
+//     collection: 'sessions',
+//     uri: config.MONGODB_URL
+// });
 const hbs = exphbs.create({
     defaultLayout: 'main',
     extname: 'hbs',
@@ -119,7 +119,7 @@ app.use(
     helmet.xssFilter()
 );
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || config.PORT;
 
 async function start(){
     try {    
