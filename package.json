@@ -1,0 +1,34 @@
+{
+  "name": "hkr-cinema",
+  "version": "1.0.0",
+  "description": "HKR project by Deniel, Paul, Mustafa",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Miha22/hkr-cinema.git"
+  },
+  "author": "Deniel, Paul, Mustafa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Miha22/hkr-cinema/issues"
+  },
+  "homepage": "https://github.com/Miha22/hkr-cinema#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "compression": "^1.7.4",
+    "connect-mongodb-session": "^3.1.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "express-handlebars": "^6.0.2",
+    "express-session": "^1.17.2",
+    "express-validator": "^6.14.0",
+    "helmet": "^5.0.2",
+    "jshint": "^2.13.4",
+    "moment-timezone": "^0.5.34",
+    "moongoose": "0.0.5"
+  }
+}
