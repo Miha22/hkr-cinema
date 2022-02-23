@@ -29,6 +29,6 @@
     "helmet": "^5.0.2",
     "jshint": "^2.13.4",
     "moment-timezone": "^0.5.34",
-    "moongoose": "0.0.5"
+    "moongoose": "^0.0.1"
   }
 }
