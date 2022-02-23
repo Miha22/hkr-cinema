@@ -10,21 +10,23 @@ const fs = require('fs');
 //const { MongoClient, ServerApiVersion } = require('mongodb').MongoClient;
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const mongoose = require('mongoose');
-//const MongoStore = require('connect-mongodb-session')(session);
+const MongoStore = require('connect-mongodb-session')(session);
 const cors = require('cors');
 const permissionsPolicy = require("permissions-policy");
 
 const config = require('./keys/config');
+// const client = new MongoClient(config.MONGODB_URL, { 
+//     sslKey: credentials,
+//     sslCert: credentials,
+//     serverApi: ServerApiVersion.v1
+// }); 
+// Because using mongoose
+const PORT = process.env.PORT || config.PORT;
 const credentials = './keys/X509-cert-6997278848692911126-6month.pem';
-const client = new MongoClient(config.MONGODB_URL, { 
-    sslKey: credentials,
-    sslCert: credentials,
-    serverApi: ServerApiVersion.v1
+const store = MongoStore({
+    collection: 'sessions',
+    uri: config.MONGODB_URL
 });
-// const store = MongoStore({
-//     collection: 'sessions',
-//     uri: config.MONGODB_URL
-// });
 const hbs = exphbs.create({
     defaultLayout: 'main',
     extname: 'hbs',
@@ -119,13 +121,12 @@ app.use(
     helmet.xssFilter()
 );
 
-const PORT = process.env.PORT || config.PORT;
-
 async function start(){
     try {    
         await mongoose.connect(config.MONGODB_URL, { 
-            useNewUrlParser: true, 
-            useUnifiedTopology: true 
+            sslKey: credentials,
+            sslCert: credentials,
+            serverApi: ServerApiVersion.v1
         });
 
         app.listen(PORT, () => {
