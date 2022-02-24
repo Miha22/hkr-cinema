@@ -13,6 +13,8 @@ const mongoose = require('mongoose');
 const MongoStore = require('connect-mongodb-session')(session);
 const cors = require('cors');
 const permissionsPolicy = require("permissions-policy");
+const homeRoute = require('./routes/home');
+const errorMiddleware = require('./middleware/error');
 
 const config = require('./keys/config');
 // const client = new MongoClient(config.MONGODB_URL, { 
@@ -121,6 +123,9 @@ app.use(
     }),
     helmet.xssFilter()
 );
+//app.use('/dashboard', dashboardRoute);
+app.use('/', homeRoute);
+app.use(errorMiddleware);
 
 async function start(){
     try {    
