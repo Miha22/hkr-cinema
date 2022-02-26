@@ -14,6 +14,8 @@ const MongoStore = require('connect-mongodb-session')(session);
 const cors = require('cors');
 const permissionsPolicy = require("permissions-policy");
 const homeRoute = require('./routes/home');
+const addFilmRoute = require('./routes/addfilm');
+const filmsRoute = require('./routes/films');
 const errorMiddleware = require('./middleware/error');
 
 const config = require('./keys/config');
@@ -124,6 +126,9 @@ app.use(
     helmet.xssFilter()
 );
 //app.use('/dashboard', dashboardRoute);
+//app.use('/dashboard', dashboardRoute);
+app.use('/films', filmsRoute);
+app.use('/add-film', addFilmRoute);
 app.use('/', homeRoute);
 app.use(errorMiddleware);
 

@@ -6,7 +6,7 @@ const moment = require('moment-timezone');
 router.get('/', async (req, res) => {
     res.render('home', {
         title: 'This is start page',
-        isIndex: true
+        isHome: true
     }); 
 });
 
