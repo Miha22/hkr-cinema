@@ -16,6 +16,7 @@ const permissionsPolicy = require("permissions-policy");
 const homeRoute = require('./routes/home');
 const addFilmRoute = require('./routes/addfilm');
 const filmsRoute = require('./routes/films');
+const newsRoute = require('./routes/news');
 const errorMiddleware = require('./middleware/error');
 
 const config = require('./keys/config');
@@ -129,6 +130,7 @@ app.use(
 //app.use('/dashboard', dashboardRoute);
 app.use('/films', filmsRoute);
 app.use('/add-film', addFilmRoute);
+app.use('/news', newsRoute);
 app.use('/', homeRoute);
 app.use(errorMiddleware);
 
