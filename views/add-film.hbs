@@ -1,1 +1,28 @@
 <h1>Add new film</h1>
+<form action="/addfilm" method="POST">
+    <div class="input-field">
+        <input id="title" name="title" type="text" class="validate" required>
+        <label for="title">Film name</label>
+        <span class="helper-text" data-error="enter valid film name" data-success="correct">Film name</span>
+    </div>
+
+    <div class="input-field">
+        <input id="price" name="price" type="text" class="validate" required min="1">
+        <label for="price">Ticket booking price</label>
+        <span class="helper-text" data-error="enter valid price" data-success="correct">Price per 1 ticket</span>
+    </div>
+
+    <div class="input-field">
+        <input id="img" name="img" type="text" class="validate" required>
+        <label for="img">Film image URL</label>
+        <span class="helper-text" data-error="enter valid URL" data-success="correct">Link to an image</span>
+    </div>
+
+    <div class="input-field">
+        <input id="trailer" name="trailer" type="text" class="validate" required>
+        <label for="trailer">Trailer URL</label>
+        <span class="helper-text" data-error="enter valid URL" data-success="correct">Link to a film trailer, e.g.: youtube link</span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add New Film</button>
+</form>

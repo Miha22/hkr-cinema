@@ -129,7 +129,7 @@ app.use(
 //app.use('/dashboard', dashboardRoute);
 //app.use('/dashboard', dashboardRoute);
 app.use('/films', filmsRoute);
-app.use('/add-film', addFilmRoute);
+app.use('/addfilm', addFilmRoute);
 app.use('/news', newsRoute);
 app.use('/', homeRoute);
 app.use(errorMiddleware);

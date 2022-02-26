@@ -8,4 +8,10 @@ router.get('/', async (req, res) => {
     }); 
 });
 
+router.post('/', async (req, res) => {
+    console.log(req.body);
+    
+    res.redirect('/films');
+});
+
 module.exports = router;
