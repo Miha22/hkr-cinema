@@ -1,1 +1,20 @@
 <h1>Films</h1>
+
+{{#each films}}
+<div class="row">
+    <div class="col s6 offset-3">
+        <div class="card">
+            <div class="card-image">
+                <img src="{{img}}" alt="{{title}}">
+            </div>
+            <div class="card-content">
+                <span class="card-title">{{title}}</span>
+                <p class="price">{{price}}</p>
+            </div>
+            <div class="card-action">
+                <a href="/films/{{id}}">Book ticket</a>
+            </div>
+        </div>
+    </div>
+</div>
+{{/each}}
