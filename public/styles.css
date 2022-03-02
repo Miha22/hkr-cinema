@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .nav-wrapper {
     padding: 0 2rem;
     height: 700px;
