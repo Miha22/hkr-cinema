@@ -1,6 +1,10 @@
 node_modules/
 keys/*
 !keys/config.js
+public/*
+!public/styles.css
+# !public/materialize.css
+# !public/materialize.min.css
 
 # Usually it is a good practise to have unique gitignore for each developer
 #.gitignore
