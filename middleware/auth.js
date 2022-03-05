@@ -54,3 +54,57 @@ exports.login = async (req, res, next) => {
         });
       }
   };
+
+exports.update = async (req, res, next) => {
+  const { role, id } = req.body;
+  // Verifying if role and id is presnt
+  if (role && id) {
+    // Verifying if the value of role is admin
+    if (role === "admin") {
+      await user.findById(id)
+      .then((user) => {
+        // Verifies the user is not an admin
+        if (user.role !== "admin") {
+          user.role = role;
+          user.save((err) => {
+            //Monogodb error checker
+            if (err) {
+              res
+                .status("400")
+                .json({ message: "An error occurred", error: err.message });
+              process.exit(1);
+            }
+            res.status("201").json({ message: "Update successful", user });
+          });
+        } else {
+          res.status(400).json({ message: "User is already an Admin" });
+        }
+      })
+      .catch((error) => {
+        res
+          .status(400)
+          .json({ message: "An error occurred", error: error.message });
+      });
+    } else {
+      res.status(400).json({
+        message: "Role is not admin",
+      });
+    }
+  } else {
+    res.status(400).json({ message: "Role or Id not present" });
+  }
+};
+
+exports.deleteUser = async (req, res, next) => {
+  const { id } = req.body;
+  await user.findById(id)
+    .then(user => user.remove())
+    .then(user =>
+      res.status(201).json({ message: "User successfully deleted", user })
+    )
+    .catch(error =>
+      res
+        .status(400)
+        .json({ message: "An error occurred", error: error.message })
+    );
+};
