@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node app.js",
     "build": "webpack",
-    "dev": "webpack; nodemon app.js"
+    "dev": "webpack; nodemon app.js",
+    "mycmd": "ping google.com"
   },
   "repository": {
     "type": "git",

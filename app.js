@@ -92,7 +92,7 @@ app.use(
         ],
         "img-src": [
             "'self'",
-            "data:"
+            "https://image.api.playstation.com"
         ],
         "object-src": [
             "'none'"

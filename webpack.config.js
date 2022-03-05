@@ -2,17 +2,18 @@ const path = require("path");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 //const config = require("./package.json");
 const file1 = 'hello.js';
+const file2 = 'film-script.js';
 
 module.exports = {
     mode: 'development',
     entry: [
-        path.resolve(__dirname, './scripts/', file1),
+        path.resolve(__dirname, './scripts/', file2),
         //path.resolve(__dirname, './scripts/', file2)
     ],
     devtool: "source-map",
     output: {
         path: __dirname,
-        filename: `./public/bundle-${file1}`
+        filename: `./public/bundle-${file2}`
     },
     // plugins: [
     //     new HtmlWebpackPlugin({
