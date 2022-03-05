@@ -18,6 +18,7 @@ const addFilmRoute = require('./routes/addfilm');
 const filmsRoute = require('./routes/films');
 const newsRoute = require('./routes/news');
 const errorMiddleware = require('./middleware/error');
+const userModel = require('./models/user');
 
 const config = require('./keys/config');
 // const client = new MongoClient(config.MONGODB_URL, { 
