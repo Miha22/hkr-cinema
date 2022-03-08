@@ -2,8 +2,7 @@ node_modules/
 keys/*
 !keys/config.js
 public/*
-!public/scss/styles.css
-!public/scss/styles.css.min
+!public/scss/styles.scss
 !public/styles.css
 # !public/materialize.css
 # !public/materialize.min.css
