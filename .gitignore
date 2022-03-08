@@ -2,6 +2,8 @@ node_modules/
 keys/*
 !keys/config.js
 public/*
+!public/scss
+public/scss/*
 !public/scss/styles.scss
 !public/styles.css
 # !public/materialize.css
