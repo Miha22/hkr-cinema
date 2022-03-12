@@ -1,10 +1,19 @@
 node_modules/
+.DS_Store
+
 keys/*
 !keys/config.js
+
 public/*
 !public/scss/styles.css
 !public/scss/styles.css.min
 !public/styles.css
+
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
 # !public/materialize.css
 # !public/materialize.min.css
 
