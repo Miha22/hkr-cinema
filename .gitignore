@@ -5,8 +5,9 @@ keys/*
 !keys/config.js
 
 public/*
-!public/scss/styles.css
-!public/scss/styles.css.min
+!public/scss
+public/scss/*
+!public/scss/styles.scss
 !public/styles.css
 
 .vscode/*
