@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.nav-wrapper {
+    padding: 0 2rem;
+    height: 700px;
+}
+
+.price {
+    font-size: 2rem;
+}
+
+.course {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.course h1 {
+    margin-bottom: 2rem;
+    height: auto;
+}
+
+.course img {
+    max-width: 600px;
+    height: auto;
+}
+
+.course .price.big {
+    font-size: 2.5rem;
+}
+
+.card-action.actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.course-edit {
+    margin-bottom: 2rem;
+}
+
+.course-form {
+    margin-bottom: 2rem;
+}
+
+.auth {
+    padding-top: 1rem;
+}
+
+.alert {
+    padding: .5rem 1rem;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    margin-bottom: 1rem;
+
+    background: rgba(255, 0, 0, 0.3);
+    color: red;
+
+    text-align: center;
+}
+
+@media all and (max-width: 600px) and (orientation:portrait) 
+{
+    #qr-code {
+        min-width: 80%;
+        min-height: 80%;
+    }
+}
+
+@media all and (orientation:landscape) 
+{
+    #qr-code {
+        min-width: 50%;
+        min-height: 50%;
+    }
+}
+
+.qr-container {
+    width: 100%;
+}
+
+.qr-container .centrer {
+    margin: 0 auto;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}

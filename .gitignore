@@ -5,10 +5,10 @@ keys/*
 !keys/config.js
 
 public/*
+!public/styles.css
 !public/scss
 public/scss/*
 !public/scss/styles.scss
-!public/styles.css
 
 .vscode/*
 !.vscode/settings.json
