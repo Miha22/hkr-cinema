@@ -7,10 +7,6 @@ const filmschema = new Schema({
         unique: true,
         required: true,
     },
-    price: {
-        type: Number,
-        required: true
-    },
     img: {
         type: String,
         required: true

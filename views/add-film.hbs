@@ -3,36 +3,63 @@
     <div class="input-field">
         <input id="title" name="title" type="text" class="validate" placeholder="Pidorman" required>
         <label for="title">Film name</label>
-        <span class="helper-text" data-error="enter valid film name" data-success="correct">Film name</span>
+        <span class="helper-text" data-error="enter valid film name" data-success="ok">Film name, e.g.: "Spider man - 2"</span>
     </div>
 
-    <div class="input-field">
+    {{!-- <div class="input-field">
         <input id="price" name="price" type="text" class="validate" placeholder="420.99" required min="1">
         <label for="price">Ticket booking price</label>
         <span class="helper-text" data-error="enter valid price" data-success="correct">Price per 1 ticket</span>
-    </div>
+    </div> --}}
 
     <div class="input-field">
-        <input id="trailer" name="trailer" type="text" class="validate" placeholder="some url">
+        <input id="trailer" name="trailer" type="text" class="validate" placeholder="https://www.youtube.com/watch?v=1s9Yln0YwCw">
         <label for="trailer">Trailer URL</label>
-        <span class="helper-text" data-error="enter valid URL" data-success="correct">Link to a film trailer, e.g.: youtube link</span>
+        <span class="helper-text" data-error="enter valid URL" data-success="ok">Link to a film trailer, e.g.: youtube link</span>
     </div>
 
-    <div class="input-field">
+    {{!-- <div class="input-field">
         <input id="description" name="description" type="text" class="validate" placeholder="This film is very good honestly speaking with you people!">
         <label for="description">Description</label>
         <span class="helper-text" data-error="enter valid desc." data-success="correct">Film description</span>
+    </div> --}}
+
+    <div class="row">
+          <div class="input-field s12">
+                <textarea id="description" name="description" class="materialize-textarea" data-length="120"></textarea>
+                <label for="description">Description</label>
+          </div>
     </div>
 
-     <div class="input-field">
-        {{!-- <input id="img" name="img" type="text" class="validate" required>
+    {{!-- <div class="input-field">
+        <input id="img" name="img" type="text" class="validate" required>
         <label for="img">Film image URL</label>
-        <span class="helper-text" data-error="enter valid URL" data-success="correct">Link to an image</span> --}}
+        <span class="helper-text" data-error="enter valid URL" data-success="correct">Link to an image</span>
 
         <input type="file" name="img-film" class="validate" required/>
-        {{!-- <label for="img">Film image</label> --}}
+        <label for="img">Film image</label>
         <span class="helper-text" data-error="upload image" data-success="correct">Select image</span>
+    </div> --}}
+
+    {{!-- <div class="file-field input-field">
+        <div class="btn">
+            <span>File</span>
+            <input name="img-film" type="file" multiple>
+        </div>
+        <div class="file-path-wrapper">
+            <input class="file-path validate" type="text" placeholder="Upload one or more film images">
+        </div>
+    </div> --}}
+
+    <div class="file-field input-field">
+      <div class="btn">
+        <span>File</span>
+        <input name="img-film" type="file">
+      </div>
+      <div class="file-path-wrapper">
+        <input class="file-path validate" type="text">
+      </div>
     </div>
 
-    <button type="submit" class="btn btn-primary">Add New Film</button>
+    <button type="submit" class="btn btn-primary">Add Film</button>
 </form>

@@ -20,11 +20,26 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/', upload.single('img-film'), async (req, res) => {
-    console.log(req.body);
-    console.log(JSON.stringify(req.file));
-    const { title, price, trailer, description } = req.body;
+    //console.log(req.body);
+    //console.log(JSON.stringify(req.file));
+    const { title, trailer, description } = req.body;
+    await addFilm(title, req.file.originalname, trailer, description);
     
     res.redirect('/films');
 });
+
+async function addFilm(title, img, trailer, description) {
+    await new Film({
+        title, 
+        img, 
+        trailer,
+        description
+    }).save();
+
+    return {
+        error: '',
+        modified: 1
+    };
+}
 
 module.exports = router;
