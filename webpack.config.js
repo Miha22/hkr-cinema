@@ -13,7 +13,7 @@ module.exports = {
     devtool: "source-map",
     output: {
         path: __dirname,
-        filename: `./public/bundle-${file2}`
+        filename: `./public/scripts/bundle-${file2}`
     },
     // plugins: [
     //     new HtmlWebpackPlugin({

@@ -1,27 +1,37 @@
 <h1>Add new film</h1>
-<form action="/addfilm" method="POST">
+<form action="/addfilm" method="POST" enctype="multipart/form-data">
     <div class="input-field">
-        <input id="title" name="title" type="text" class="validate" required>
+        <input id="title" name="title" type="text" class="validate" placeholder="Pidorman" required>
         <label for="title">Film name</label>
         <span class="helper-text" data-error="enter valid film name" data-success="correct">Film name</span>
     </div>
 
     <div class="input-field">
-        <input id="price" name="price" type="text" class="validate" required min="1">
+        <input id="price" name="price" type="text" class="validate" placeholder="420.99" required min="1">
         <label for="price">Ticket booking price</label>
         <span class="helper-text" data-error="enter valid price" data-success="correct">Price per 1 ticket</span>
     </div>
 
     <div class="input-field">
-        <input id="img" name="img" type="text" class="validate" required>
-        <label for="img">Film image URL</label>
-        <span class="helper-text" data-error="enter valid URL" data-success="correct">Link to an image</span>
+        <input id="trailer" name="trailer" type="text" class="validate" placeholder="some url">
+        <label for="trailer">Trailer URL</label>
+        <span class="helper-text" data-error="enter valid URL" data-success="correct">Link to a film trailer, e.g.: youtube link</span>
     </div>
 
     <div class="input-field">
-        <input id="trailer" name="trailer" type="text" class="validate" required>
-        <label for="trailer">Trailer URL</label>
-        <span class="helper-text" data-error="enter valid URL" data-success="correct">Link to a film trailer, e.g.: youtube link</span>
+        <input id="description" name="description" type="text" class="validate" placeholder="This film is very good honestly speaking with you people!">
+        <label for="description">Description</label>
+        <span class="helper-text" data-error="enter valid desc." data-success="correct">Film description</span>
+    </div>
+
+     <div class="input-field">
+        {{!-- <input id="img" name="img" type="text" class="validate" required>
+        <label for="img">Film image URL</label>
+        <span class="helper-text" data-error="enter valid URL" data-success="correct">Link to an image</span> --}}
+
+        <input type="file" name="img-film" class="validate" required/>
+        {{!-- <label for="img">Film image</label> --}}
+        <span class="helper-text" data-error="upload image" data-success="correct">Select image</span>
     </div>
 
     <button type="submit" class="btn btn-primary">Add New Film</button>

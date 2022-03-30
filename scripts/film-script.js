@@ -30,7 +30,7 @@ function Card(params) {
     return(
         <div className='card'>
             <div className="card-body">
-            <img src={params.img} class="card-image"/>
+            <img src={params.img} className="card-image"/>
                 <h2 className="card-title">{params.title}</h2>
                 <p className="card-description">{params.description}</p>
             </div>
