@@ -16,7 +16,9 @@ router.get('/:page', async (req, res) => {
 
     getFilms(page).then(films => {
         res
-        .json({ data: films });
+        .status(200)
+        .type('json')
+        .json(films);
     });
 });
 

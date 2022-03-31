@@ -82,9 +82,7 @@ app.use(
       "upgrade-insecure-requests": true,
       directives: {
         "default-src": [
-            "'self'",
-            'https://dog.ceo/api/breeds/list/all',
-            'http://192.168.1.195/'
+            "'self'"
         ],
         "base-uri": "'self'",
         "font-src": [
@@ -149,11 +147,33 @@ const io = new Server(server);
 
 io.on('connection', async (socket) => {
     console.log('a user connected');
-    await loadFilms(socket);
+    socket.on('image-request', async (imagename) => {
+        getImage(imagename).then(image => {
+            //console.log('Img contents: ' + image);
+            socket.emit('image-response', image); // image should be a buffer
+        });
+        //socket.emit('image-response', image.toString('base64')); // image should be a buffer
+    });
     socket.on('disconnect', () => {
       console.log('user disconnected');
     });
 });
+
+function getImage(imagename) {
+    return new Promise(async (resolve, reject) => {
+        // fs.readFile(`./uploads/${imagename}`, 'utf8', function(err, data){
+        //     if(err) {
+        //         reject(null);
+        //         throw err;
+        //     }
+        //     resolve(data);
+        // });
+
+        const contents = await fs.promises.readFile(`./uploads/${imagename}`, { encoding: 'base64' });
+
+        resolve(contents);
+    });
+}
 
 async function start(){
     try {    

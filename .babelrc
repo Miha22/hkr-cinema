@@ -4,3 +4,5 @@
         "@babel/plugin-transform-runtime"
     ]
 }
+
+//babel/plugin-transform-runtime is used to allow async func calls within jsx
