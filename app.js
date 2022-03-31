@@ -95,7 +95,7 @@ app.use(
         ],
         "img-src": [
             "'self'",
-            "https://image.api.playstation.com"
+            "data:"
         ],
         "object-src": [
             "'none'"
