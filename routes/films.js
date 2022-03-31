@@ -3,25 +3,28 @@ const router = express.Router();
 const Film = require('../models/film');
 
 router.get('/', async (req, res) => {
-    await getFilms(null);
+    //const films = getFilms(null);
     res.render('films', {
         title: 'List of films',
         isFilms: true
-    }); 
+    });
 });
 
-async function getFilms(date){
-    // var filter = { 
-    //     $and: [
-    //         { "$expr": { "$eq": [{ "$year": "$start_date" }, date.getFullYear()] } },
-    //         { "$expr": { "$eq": [{ "$month": "$start_date" }, date.getMonth() + 1] } },
-    //         { "$expr": { "$eq": [{ "$dayOfMonth": "$start_date" }, date.getUTCDate() + 1] } }
-    //       ]
-    // };
-    const films = await Film.find();
-    console.log(JSON.stringify(films));
+router.get('/:page', async (req, res) => {
+    const page = req.params.page;
+    console.log('Page: ' + page);
 
-    return JSON.stringify(films);
+    getFilms(page).then(films => {
+        res
+        .json({ data: films });
+    });
+});
+
+async function getFilms(page){
+    const films = await Film.find().select({ _id: 0, __v: 0 });
+    //console.log(JSON.stringify(films));
+
+    return films;
 }
 
 module.exports = router;

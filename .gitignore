@@ -1,5 +1,7 @@
 node_modules/
-uploads/
+uploads/*
+ssl/*
+!cmd.txt
 .DS_Store
 
 keys/*

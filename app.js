@@ -1,4 +1,5 @@
 const express = require('express');
+const { Server } = require("socket.io");
 //const csurf = require('csurf');
 const helmet = require('helmet');
 //const flash = require('connect-flash');
@@ -19,6 +20,7 @@ const filmsRoute = require('./routes/films');
 const newsRoute = require('./routes/news');
 const errorMiddleware = require('./middleware/error');
 const userModel = require('./models/user');
+const { loadFilms } = require('./modules/film-loader');
 
 const config = require('./keys/config');
 // const client = new MongoClient(config.MONGODB_URL, { 
@@ -80,7 +82,9 @@ app.use(
       "upgrade-insecure-requests": true,
       directives: {
         "default-src": [
-            "'self'"
+            "'self'",
+            'https://dog.ceo/api/breeds/list/all',
+            'http://192.168.1.195/'
         ],
         "base-uri": "'self'",
         "font-src": [
@@ -136,6 +140,21 @@ app.use('/news', newsRoute);
 app.use('/', homeRoute);
 app.use(errorMiddleware);
 
+start();
+
+const server = app.listen(PORT, () => {
+    console.log("Server is running on port:", PORT);
+});
+const io = new Server(server);
+
+io.on('connection', async (socket) => {
+    console.log('a user connected');
+    await loadFilms(socket);
+    socket.on('disconnect', () => {
+      console.log('user disconnected');
+    });
+});
+
 async function start(){
     try {    
         await mongoose.connect(config.MONGODB_URL, { 
@@ -144,13 +163,13 @@ async function start(){
             serverApi: ServerApiVersion.v1
         });
 
-        app.listen(PORT, () => {
-            console.log(`Server is running on port ${PORT}...`);
-        });
+        // const server = app.listen(PORT, () => {
+        //     console.log("Server is running on port: ", PORT);
+        // });
+
+        // return server;
     }
     catch (e) {
         console.log(e);
     }
 }
-
-start();
