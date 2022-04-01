@@ -161,14 +161,6 @@ io.on('connection', async (socket) => {
 
 function getImage(imagename) {
     return new Promise(async (resolve, reject) => {
-        // fs.readFile(`./uploads/${imagename}`, 'utf8', function(err, data){
-        //     if(err) {
-        //         reject(null);
-        //         throw err;
-        //     }
-        //     resolve(data);
-        // });
-
         const contents = await fs.promises.readFile(`./uploads/${imagename}`, { encoding: 'base64' });
 
         resolve(contents);

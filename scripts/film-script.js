@@ -13,7 +13,7 @@ function App(films){
             {
                 films.map(function(film) {
                     // returns Nathan, then John, then Jane
-                    return Card({ title: film.title, img: film.img, description: film.description.substring(0, 110) + "..." })
+                    return Card({ title: film.title, img: film.img, description: film.description })
                 })
             }
         </div>
