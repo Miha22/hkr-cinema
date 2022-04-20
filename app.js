@@ -18,6 +18,7 @@ const homeRoute = require('./routes/home');
 const addFilmRoute = require('./routes/addfilm');
 const filmsRoute = require('./routes/films');
 const newsRoute = require('./routes/news');
+const userRouter = require('./routes/user');
 const errorMiddleware = require('./middleware/error');
 const userModel = require('./models/user');
 const { loadFilms } = require('./modules/film-loader');
@@ -136,6 +137,7 @@ app.use('/films', filmsRoute);
 app.use('/addfilm', addFilmRoute);
 app.use('/news', newsRoute);
 app.use('/', homeRoute);
+app.use('/user', userRouter);
 app.use(errorMiddleware);
 
 start();
