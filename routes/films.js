@@ -22,6 +22,15 @@ router.get('/:page', async (req, res) => {
     });
 });
 
+router.get('/book/:name', async (req, res) => {
+    const name = req.params.name;
+    console.log('name film: ' + name);
+
+    res.render('seats', {
+        script: '../../scripts/bundle-seats.js'
+    });
+});
+
 async function getFilms(page){
     const films = await Film.find().select({ _id: 0, __v: 0 });
     //console.log(JSON.stringify(films));
@@ -29,4 +38,10 @@ async function getFilms(page){
     return films;
 }
 
+async function getSeats(film){
+    const films = await Film.find().select({ _id: 0, __v: 0 });
+    //console.log(JSON.stringify(films));
+
+    return films;
+}
 module.exports = router;

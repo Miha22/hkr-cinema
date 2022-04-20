@@ -1,19 +1,19 @@
 const path = require("path");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 //const config = require("./package.json");
-const file1 = 'hello.js';
+const file1 = 'seats.js';
 const file2 = 'film-script.js';
 
 module.exports = {
     mode: 'development',
-    entry: [
-        path.resolve(__dirname, './scripts/', file2),
-        //path.resolve(__dirname, './scripts/', file2)
-    ],
+    entry: {
+        'bundle-seats': path.resolve(__dirname, './scripts/', file1),
+        'bundle-film-script': path.resolve(__dirname, './scripts/', file2)
+    },
     devtool: "source-map",
     output: {
-        path: __dirname,
-        filename: `./public/scripts/bundle-${file2}`
+      path: path.resolve(__dirname, './public/scripts/'),
+      filename: '[name].js'
     },
     // plugins: [
     //     new HtmlWebpackPlugin({
@@ -23,8 +23,8 @@ module.exports = {
     module: {
         rules: [
             {
-              test: /\.?js$/,
-              exclude: /node_modules/,
+              test: /\.?js$/,///\.jsx?$/
+              exclude: /(node_modules)/,
               use: {
                 loader: "babel-loader",
                 options: {

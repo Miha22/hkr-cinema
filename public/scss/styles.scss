@@ -74,6 +74,7 @@ h2 {
     font-family: inherit;
     font-weight: bold;
     font-size: 1rem;
+    text-align: center;
     margin: 1rem;
     border: 2px solid $clr-primary;
     background: transparent;
@@ -89,5 +90,56 @@ h2 {
   &:hover &-btn {
     background: $clr-primary;
     color: white;
+  }
+}
+
+.seat {
+  &-card {
+    &-occupied {
+      border: 1px solid #EF9A9A;
+    }
+    &-free {
+      border: 1px solid #40e69b;
+    }
+    width: 50px;                 /* Set width of cards */
+    border: 1px solid #EF9A9A;    /* Set up Border */
+    border-radius: 4px;           /* Slightly Curve edges */
+    overflow: hidden;             /* Fixes the corners */  display: flex;                /* Children use Flexbox */
+    flex-direction: column;       /* Rotate Axis */
+
+    &-header {
+      &-free {
+        color: #24d87e;
+        border-bottom: 1px solid #40e69b;
+        background-color: #9aefc2;
+      }
+      &-occupied {
+        color: #D32F2F;
+        border-bottom: 1px solid #EF9A9A;
+        background-color: #FFEBEE;
+      }
+      text-align: center;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 10px;
+    }
+
+    &-main {
+      display: flex;              /* Children use Flexbox */
+      flex-direction: column;     /* Rotate Axis to Vertical */
+      justify-content: center;    /* Group Children in Center */
+      align-items: center;        /* Group Children in Center (+axis) */
+      padding: 3px 0;            /* Add padding to the top/bottom */
+      &-description {
+        &-free {
+          color: #24d87e;
+        }
+        &-occupied { 
+          color: #D32F2F;
+        }
+        font-size: 12px;
+        text-align: center;
+      }
+    }
   }
 }

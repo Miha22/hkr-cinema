@@ -14,7 +14,7 @@ function App(films){
                 films.map(function(film) {
                     // returns Nathan, then John, then Jane
                     return Card({ title: film.title, img: film.img, description: film.description })
-                })
+                }) 
             }
         </div>
     );
@@ -28,7 +28,7 @@ function Card(params) {
                 <h2 className="card-title">{params.title}</h2>
                 <p className="card-description">{params.description}</p>
             </div>
-            <button className="card-btn">Book ticket</button>
+            <a className="card-btn" href={"/films/book/" + params.title}>Book ticket</a>
         </div>
     );
 }
@@ -92,11 +92,22 @@ function loadImages(films) {
 
 getFilms(1).then(films => {
     //ReactDOM.render(<App />, document.querySelector("#root"));
-    loadImages(films).then(films => {
-        console.log('Result: ' + films[0].img);
-        ReactDOM.render(App(films), document.querySelector("#root"));
-    })
+    // loadImages(films).then(films => {
+    //     console.log('Result: ' + films[0].img);
+    //     ReactDOM.render(App(films), document.querySelector("#root"));
+    // })
+
+    ReactDOM.render(App(films), document.querySelector("#root"));
 });
+
+// getFilms(1).then(films => {
+//     //ReactDOM.render(<App />, document.querySelector("#root"));
+//     loadImages(films).then(films => {
+//         console.log('Result: ' + films[0].img);
+//         ReactDOM.render(App(films), document.querySelector("#root"));
+//     })
+// });
+
 // getFilms(1).catch(err => {
 //     console.log(err);
 //     // do something with the error here
